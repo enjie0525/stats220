@@ -1,0 +1,94 @@
+---
+title: "Creating images with R"
+author: "Enjie Cheng"
+subtitle: "Nice Gay"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{css}
+body {
+  font-weight: bold;   
+  font-style: italic;  
+  color: black;
+}
+
+```
+
+## Project requirements
+Here is the link:  
+https://github.com/annafergusson/stats220
+
+## Inspo meme
+The changes I made to the original meme include:
+
+Changing the text color from white to red
+Keeping the centered and bold text style
+
+The reason for these changes is:
+
+Red is more eye-catching than white, making the text stand out more and improving the overall visual impact of the meme.
+
+## My meme
+
+library(magick)
+
+meme <- image_read("https://www.meme-arsenal.com/memes/2851200.jpg")
+meme <- meme %>%
+  image_annotate(
+    size = 40,
+    color = "red",
+    gravity = "north",
+    weight = 700
+  ) %>%
+  image_annotate(
+    size = 40,
+    color = "red",
+    gravity = "south", 
+    weight = 700
+  )
+
+image_write(meme, "my_meme.png")
+
+frame1 <- image_annotate(meme, "1", gravity = "center", size = 50)
+frame2 <- image_annotate(meme, "2", gravity = "center", size = 50)
+frame3 <- image_annotate(meme, "3", gravity = "center", size = 50)
+frame4 <- image_annotate(meme, "4", gravity = "center", size = 50)
+
+animation <- c(frame1, frame2, frame3, frame4)
+
+animation <- image_animate(animation, fps = 1)
+
+
+image_write(animation, "my_animated_meme.gif")
+Changing the text color from white to red
+Keeping the centered and bold text style
+
+The reason is:
+
+Red is more eye-catching than white, making the text stand out more and improving the overall visual impact of the meme.
+
+## My animated meme 
+My animated meme is shown below:
+
+## Creativity
+  
+
+## Learning reflection
+
+
+## Appendix
+
+<mark>Do not change, edit, or remove the `R` chunk included below.</mark> 
+
+If you are working within RStudio and within your Project1 RStudio project (check the top right-hand corner says "Project1"), then the code from the `meme.R` script will be displayed below.
+
+This code needs to be visible for your project to be marked appropriately, as some of the criteria are based on this code being submitted.
+
+
+```{r file='meme.R', eval=FALSE, echo=TRUE}
+
+``` 
